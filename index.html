@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Pokedex</h1>
+  </header>
+  <main>
+    <div class="search-bar">
+      <input type="text" placeholder="Search a pokemon">
+      <input type="button" value="Search">
+    </div>
+    <div class="filters-bar">
+        <div class="filter">
+          <select name="types" id="types">
+            <option value="">Type</option>
+            <option value="fire">Fire</option>
+            <option value="grass">Grass</option>
+            <option value="water">Water</option>
+            <option value="bug">Bug</option>
+            <option value="electric">Electric</option>
+            <option value="poison">Poison</option>
+            <option value="fighting">Fighting</option>
+            <option value="ground">Ground</option>
+          </select>
+        </div>
+        <div class="filter">
+          <select name="weaknesses" id="weaknesses">
+            <option value="">Weaknesses</option>
+            <option value="fire">Fire</option>
+            <option value="grass">Grass</option>
+            <option value="water">Water</option>
+            <option value="bug">Bug</option>
+            <option value="electric">Electric</option>
+            <option value="poison">Poison</option>
+            <option value="fighting">Fighting</option>
+            <option value="ground">Ground</option>
+          </select>
+        </div>
+        <div class="filter">
+          <select name="order" id="order">
+            <option value="">Order by</option>
+            <option value="ascendant">A-Z</option>
+            <option value="descendant">Z-A</option>
+          </select>
+        </div>
+        <div class="filter buttons">
+          <button class="reverted">Clean Filters</button>
+          <button >Apply Filters</button>
+        </div>
+    </div>
+
+    <div class="cards">
+      <!-- Inicio del HTML a ser reeemplazado -->
+      <div class="pokemon-card grass">
+        <div class="pokemon-card__type-label grass">
+          <i class="pokemon-card__name-icon bx bx-leaf grass"></i>
+          <span>grass</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/001.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Bulbasaur</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#001</p>
+      </div>
+    
+      <div class="pokemon-card grass">
+        <div class="pokemon-card__type-label grass">
+          <i class="pokemon-card__name-icon bx bx-leaf grass"></i>
+          <span>grass</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/002.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Ivysaur</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#002</p>
+      </div>
+    
+      <div class="pokemon-card grass">
+        <div class="pokemon-card__type-label grass">
+          <i class="pokemon-card__name-icon bx bx-leaf grass"></i>
+          <span>grass</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/003.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Venusaur</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#003</p>
+      </div>
+    
+      <div class="pokemon-card fire">
+        <div class="pokemon-card__type-label fire">
+          <i class="pokemon-card__name-icon bx bxs-hot fire"></i>
+          <span>fire</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/004.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Charmander</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#004</p>
+      </div>
+    
+      <div class="pokemon-card fire">
+        <div class="pokemon-card__type-label fire">
+          <i class="pokemon-card__name-icon bx bxs-hot fire"></i>
+          <span>fire</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/005.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Charmeleon</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#005</p>
+      </div>
+    
+      <div class="pokemon-card fire">
+        <div class="pokemon-card__type-label fire">
+          <i class="pokemon-card__name-icon bx bxs-hot fire"></i>
+          <span>fire</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/006.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Charizard</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#006</p>
+      </div>
+    
+      <div class="pokemon-card water">
+        <div class="pokemon-card__type-label water">
+          <i class="pokemon-card__name-icon bx bx-water water"></i>
+          <span>water</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/007.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Squirtle</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#007</p>
+      </div>
+    
+      <div class="pokemon-card water">
+        <div class="pokemon-card__type-label water">
+          <i class="pokemon-card__name-icon bx bx-water water"></i>
+          <span>water</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/008.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Wartortle</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#008</p>
+      </div>
+    
+      <div class="pokemon-card water">
+        <div class="pokemon-card__type-label water">
+          <i class="pokemon-card__name-icon bx bx-water water"></i>
+          <span>water</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/009.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Blastoise</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#009</p>
+      </div>
+    
+      <div class="pokemon-card bug">
+        <div class="pokemon-card__type-label bug">
+          <i class="pokemon-card__name-icon bx bxs-bug bug"></i>
+          <span>bug</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/010.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Caterpie</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#010</p>
+      </div>
+    
+      <div class="pokemon-card bug">
+        <div class="pokemon-card__type-label bug">
+          <i class="pokemon-card__name-icon bx bxs-bug bug"></i>
+          <span>bug</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/011.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Metapod</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#011</p>
+      </div>
+    
+      <div class="pokemon-card bug">
+        <div class="pokemon-card__type-label bug">
+          <i class="pokemon-card__name-icon bx bxs-bug bug"></i>
+          <span>bug</span>
+        </div>
+        <div class="pokemon-card__image">
+          <img src="https://www.serebii.net/pokemongo/pokemon/012.png" loading="lazy">
+        </div>
+        <div class="pokemon-card__name">
+          <h4>Butterfree</h4>
+        </div>
+        <p class="pokemon-card__eyebrow">#012</p>
+      </div>
+      <!-- Fin del HTML a ser reeemplazado -->
+    </div>
+  </main>
+  <script src="index.js" type="module"></script>
+</body>
+</html>
