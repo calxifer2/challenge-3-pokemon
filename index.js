@@ -17,3 +17,5 @@ const POKEMON_TYPES_ICONS = {
 
 console.log(data)
 // Tu código aquí
+
+console.log ("Hola, es una pruebita")
