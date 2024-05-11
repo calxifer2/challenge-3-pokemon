@@ -16,8 +16,13 @@ fetch('./data/pokemon.json')
       ghost: 'bx-ghost'
     };
 
-    const pokemonArray = data.pokemon;
 
+    //Hito 1
+    const pokemonArray = data.pokemon;
+    const cardsContainer = document.querySelector('.cards');
+
+    cardsContainer.innerHTML = '';
+    
     pokemonArray.forEach(pokemon => {
       const newCard = document.createElement('div');
       newCard.classList.add('pokemon-card');
@@ -37,9 +42,12 @@ fetch('./data/pokemon.json')
         <p class="pokemon-card__eyebrow">#${pokemon.num}</p>
       `;
 
-      document.querySelector('.cards').appendChild(newCard);
+      cardsContainer.appendChild(newCard);
     });
   })
   .catch(error => {
     console.error('Error al cargar el archivo JSON:', error);
   });
+//Hito 1
+//Hito 1
+//Hito 1 
