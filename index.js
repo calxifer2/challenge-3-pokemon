@@ -50,4 +50,14 @@ fetch('./data/pokemon.json')
   });
 //Hito 1
 //Hito 1
-//Hito 1 
+//Hito 1
+
+const orderByAlphabetical = (Array, getter, order = asc) => {
+  Array.sort ((a, b) => {
+    const first = getter (a);
+    const second = getter (b);
+    const compare = first.localeCompare(second);
+    return order === asc ? compare :-compare;
+  });
+  return Array;
+}
