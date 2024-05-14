@@ -53,6 +53,18 @@ function searchPokemon(pokemonArray, searchText) {
   return pokemonArray.filter(pokemon => pokemon.name.toLowerCase().includes(searchText));
 }
 
+function filterPokemon(pokemonArray, type, weaknesses) {
+  let pokemons = pokemonArray;
+
+  if (type.length > 0) {
+    pokemons = pokemonArray.filter(pokemon => pokemon.type[0] === type);
+  }
+  if (weaknesses.length > 0) {
+    pokemons = pokemons.filter(pokemon => pokemon.weaknesses[0] === weaknesses);
+  }
+  return pokemons;
+}
+
 loadPokemonData().then(data => {
   const pokemonArray = data.pokemon;
 
@@ -60,6 +72,10 @@ loadPokemonData().then(data => {
 
   const searchButton = document.querySelector('.search-bar input[type="button"]');
   const searchInput = document.querySelector('.search-bar input[type="text"]');
+  const selectedType = document.querySelector('#types');
+  const selectedWeaknesses = document.querySelector('#weaknesses');
+  const filterButton = document.querySelector('#filter-button');
+  const cleanFiltersButton = document.querySelector('.filter .reverted');
 
   searchButton.addEventListener('click', function () {
     const searchText = searchInput.value.trim().toLowerCase();
@@ -74,7 +90,23 @@ loadPokemonData().then(data => {
       showPokemon(filteredPokemon);
     }
   });
+
+  filterButton.addEventListener('click', function () {
+    const type = selectedType.value.trim().toLowerCase();
+    const weaknesses = selectedWeaknesses.value.trim().toLowerCase();
+    const filteredPokemon = filterPokemon(pokemonArray, type, weaknesses);
+    showPokemon(filteredPokemon);
+  });
+
+  cleanFiltersButton.addEventListener('click', function () {
+    selectedType.value = ''; 
+    selectedWeaknesses.value = ''; 
+    const filteredPokemon = pokemonArray; 
+    showPokemon(filteredPokemon);
+  });
+
 });
+
 
 
 
