@@ -53,6 +53,18 @@ function searchPokemon(pokemonArray, searchText) {
   return pokemonArray.filter(pokemon => pokemon.name.toLowerCase().includes(searchText));
 }
 
+function filterPokemon(pokemonArray, type, weaknesses) {
+  let pokemons = pokemonArray;
+  console.log(type)
+  if(type.length > 0) {
+    pokemons = pokemonArray.filter(pokemon => pokemon.type[0] === type);
+  }
+  if(weaknesses.length > 0) {
+    pokemons = pokemons.filter(pokemon => pokemon.weaknesses[0] === weaknesses);
+  }
+  return pokemons;
+}
+
 loadPokemonData().then(data => {
   const pokemonArray = data.pokemon;
 
@@ -60,6 +72,10 @@ loadPokemonData().then(data => {
 
   const searchButton = document.querySelector('.search-bar input[type="button"]');
   const searchInput = document.querySelector('.search-bar input[type="text"]');
+
+  const selectedType = document.querySelector('#types')
+  const selectedweaknesses = document.querySelector('#weaknesses')
+  const filterButton = document.querySelector('#filter-button')
 
   searchButton.addEventListener('click', function () {
     const searchText = searchInput.value.trim().toLowerCase();
@@ -77,5 +93,51 @@ searchInput.addEventListener('keypress', function (event) {
     showPokemon(filteredPokemon);
   }
 });
+  searchInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      const searchText = searchInput.value.trim().toLowerCase();
+      const filteredPokemon = searchPokemon(pokemonArray, searchText);
+      showPokemon(filteredPokemon);
+    }
+  });
+
+  filterButton.addEventListener('click', function() {
+    const type = selectedType.value.trim().toLowerCase();
+    const weaknesses = selectedweaknesses.value.trim().toLowerCase();
+    console.log(type)
+    const filteredPokemon = filterPokemon(pokemonArray, type, weaknesses)
+    showPokemon(filteredPokemon)
+  });
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const orderSelect = document.getElementById('order');
+  const cardsContainer = document.querySelector('.cards');
+
+  orderSelect.addEventListener('change', () => {
+    const order = orderSelect.value;
+    const pokemonCards = Array.from(cardsContainer.querySelectorAll('.pokemon-card'));
+
+    
+    pokemonCards.sort((a, b) => {
+      const nameA = a.querySelector('.pokemon-card__name h4').textContent;
+      const nameB = b.querySelector('.pokemon-card__name h4').textContent;
+
+      if (order === 'ascendant') {
+        return nameA.localeCompare(nameB);
+      } else if (order === 'descendant') {
+        return nameB.localeCompare(nameA);
+      } else {
+        return 0; 
+      }
+    });
+
+   
+    cardsContainer.innerHTML = '';
+    pokemonCards.forEach(card => {
+      cardsContainer.appendChild(card);
+    });
+  });
 });
 
