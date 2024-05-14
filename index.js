@@ -69,3 +69,13 @@ loadPokemonData().then(data => {
 //Hito 1
 //Hito 1
 //Hito 1 
+
+searchInput.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    const searchText = searchInput.value.trim().toLowerCase();
+    const filteredPokemon = searchPokemon(pokemonArray, searchText);
+    showPokemon(filteredPokemon);
+  }
+});
+});
+
