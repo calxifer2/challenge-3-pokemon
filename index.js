@@ -82,17 +82,14 @@ loadPokemonData().then(data => {
     const filteredPokemon = searchPokemon(pokemonArray, searchText);
     showPokemon(filteredPokemon);
   });
-//Hito 1
-//Hito 1
-//Hito 1 
 
-searchInput.addEventListener('keypress', function (event) {
-  if (event.key === 'Enter') {
-    const searchText = searchInput.value.trim().toLowerCase();
-    const filteredPokemon = searchPokemon(pokemonArray, searchText);
-    showPokemon(filteredPokemon);
-  }
-});
+  searchInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      const searchText = searchInput.value.trim().toLowerCase();
+      const filteredPokemon = searchPokemon(pokemonArray, searchText);
+      showPokemon(filteredPokemon);
+    }
+  });
   searchInput.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
       const searchText = searchInput.value.trim().toLowerCase();
@@ -109,9 +106,9 @@ searchInput.addEventListener('keypress', function (event) {
   });
 
   cleanFiltersButton.addEventListener('click', function () {
-    selectedType.value = ''; 
-    selectedWeaknesses.value = ''; 
-    const filteredPokemon = pokemonArray; 
+    selectedType.value = '';
+    selectedWeaknesses.value = '';
+    const filteredPokemon = pokemonArray;
     showPokemon(filteredPokemon);
   });
 
@@ -125,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const order = orderSelect.value;
     const pokemonCards = Array.from(cardsContainer.querySelectorAll('.pokemon-card'));
 
-    
+
     pokemonCards.sort((a, b) => {
       const nameA = a.querySelector('.pokemon-card__name h4').textContent;
       const nameB = b.querySelector('.pokemon-card__name h4').textContent;
@@ -135,11 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (order === 'descendant') {
         return nameB.localeCompare(nameA);
       } else {
-        return 0; 
+        return 0;
       }
     });
 
-   
+
     cardsContainer.innerHTML = '';
     pokemonCards.forEach(card => {
       cardsContainer.appendChild(card);
